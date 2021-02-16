@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Introduction - My Docs</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Introduction";
+    var mkdocs_page_input_path = "Introduction.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> My Docs</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Index</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">Introduction</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#objective">Objective</a></li>
+    
+
+    <li class="toctree-l2"><a href="#components">Components</a></li>
+    
+
+    <li class="toctree-l2"><a href="#functioning">Functioning</a></li>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../contents/">Contents</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../server/">Action server</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../client/">Action client</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../arm1/">arm1</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../arm2/">arm2</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../demovid/">demo</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">My Docs</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Introduction</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="objective">Objective</h1>
+<p>The objective of task-5 of the eyantra was to demonstrate a <strong>Warehouse Management System</strong> that can sort the packages based on the incoming orders from different cities. </p>
+<h1 id="components">Components</h1>
+<ul>
+<li>Two UR5 Arms.</li>
+<li>A camera.</li>
+</ul>
+<h1 id="functioning">Functioning</h1>
+<p>To perform the above task we need to function as follows</p>
+<ul>
+<li>
+<p>using the <strong>camera</strong> we should identify the colour of all the 9 packages (3 of each colour) either through <strong>colour detection</strong> or <strong>QR decoding</strong> or a combination of both.</p>
+</li>
+<li>
+<p>After a package is identified the <strong>Inventory sheet</strong> of the <strong>Inventory Management Spreadsheet</strong> is to be updated. The <strong>Inventory Management Spreadsheet is a Google Spreadsheet</strong> that is developed by us in the task-1 using ROS-IoT bridge. </p>
+</li>
+<li>
+<p>After a one minute of simulated time, a total of <strong>9</strong> orders will be published on <strong>/eyrc/vb/<unique_id>/orders</strong> MQTT topic at different intervals. The orders are then extracted from this MQTT topic using <strong>ROS-IoT</strong> Bridge. </p>
+</li>
+<li>
+<p>Then the orders are processed based on the priority coded into their colour.</p>
+</li>
+<li>
+<p>We need to update the <strong>Orders Dispatched</strong> sheet in the <strong>Inventory Management Spreadsheet</strong> as soon as it is placed on the conveyor belt by the first UR5 arm(UR5#1) and an email notification is sent to the user.</p>
+</li>
+<li>
+<p>Then the second UR5 arm(UR5#2) extract the packages from the conveyor belt and sort them according to their colour.</p>
+</li>
+<li>
+<p>Then we need to update the <strong>Orders Shipped</strong> sheet of the <strong>Warehouse Inventory Mastersheet</strong> indicating that the packages are picked and dropped in the buns by the UR5#2 arm.</p>
+</li>
+<li>
+<p>As this goes on we need to update the <strong>Warehouse Inventory Dashboard</strong> in real-time. In the Warehouse Inventory Mastersheet we can create a separate sheet called <strong>Dashboard</strong> which can show values from other sheet in the <strong>Warehouse Inventory Mastersheet spreadsheet</strong>. Teams can use this <strong>Dashboard</strong> sheet as a JSON endpoint to update the <strong>Warehouse Inventory</strong> Dashboard in real-time.</p>
+</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../contents/" class="btn btn-neutral float-right" title="Contents">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href=".." class="btn btn-neutral" title="Index"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../contents/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>
